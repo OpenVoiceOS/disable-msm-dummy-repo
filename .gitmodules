@@ -1,0 +1,6 @@
+[submodule "mycroft-configuration"]
+	path = skill-configuration
+	url = https://github.com/mycroftai/skill-configuration.git
+[submodule "mycroft-pairing"]
+	path = skill-pairing
+	url = https://github.com/mycroftai/skill-pairing.git
