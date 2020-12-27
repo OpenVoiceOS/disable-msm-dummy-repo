@@ -35,9 +35,14 @@ If you want to only keep the configuration and pairing skills, needed to properl
     },
 ```
 
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+
+
 # Disabling default skills
 
-If you want to keep the full msm functionality (marketplace installer skill), but not have default skills installed (except pairing and configuration)
+If you want to keep the full msm functionality (marketplace installer skill), but not have default skills installed (except backend skills)
 
 NOTE: this may lag behind official marketplace, open an Issue if we are due an update
 
@@ -52,6 +57,39 @@ Last sync: 27/12/2020  branch 20.08
       }
     },
 ```
+
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+
+
+# Core skills only
+
+If you want to keep the full msm functionality (marketplace installer skill), but not have default skills installed (except core functionality skills)
+
+NOTE: this may lag behind official marketplace, open an Issue if we are due an update
+
+Last sync: 27/12/2020  branch 20.08
+
+```
+  "skills": {
+    "msm": {
+      "repo": {
+        "url": "https://github.com/OpenVoiceOS/disable-msm-dummy-repo",
+        "branch": "core_skills"
+      }
+    },
+```
+
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+- mycroft-installer
+- mycroft-stop
+- mycroft-naptime
+- mycroft-playback-control
+- mycroft-volume
+- fallback-query
 
 # Alternative default skills
 
