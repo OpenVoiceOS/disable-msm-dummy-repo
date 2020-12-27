@@ -1,30 +1,97 @@
-# Mycroft Skills Repo
-![logo](https://avatars1.githubusercontent.com/u/14171097?v=4&s=200 "Logo")
+# Why
 
-# Welcome
+For OVOS we have a [msm alternative](https://github.com/OpenVoiceOS/ovos_skill_manager) and this repo is used to control msm behaviour in mycroft-core
 
-The official home of **Skills** for the Mycroft ecosystem.  These **Skills** are written by both the MycroftAI team and others within the Community.
+Mycroft does not like [alternative appstores](https://github.com/MycroftAI/mycroft-skills-manager/pull/75), but we can replace the official marketplace url
 
-# Meta Editor
+Mycroft also makes it hard to uninstall default skills, they will keep reinstalling automatically even if you remove them. We consider this goes against user freedom
 
-If you are building **Skills**, please ensure that you use the [Meta Editor](https://raw.githack.com/MycroftAI/mycroft-skills/19.02/meta_editor.html) for your README.md file. The **Skills** list is generated from parsing the README.md files. 
+# Disabling MSM completely
 
-# Skills Documentation
+If you want to completely disable msm, change your mycroft.conf
 
-If you want to write **Skills** for Mycroft, Documentation is available: 
+```
+  "skills": {
+    "msm": {
+      "repo": {
+        "url": "https://github.com/OpenVoiceOS/disable-msm-dummy-repo",
+        "branch": "disable_msm"
+      }
+    },
+```
 
-* [Mycroft Skills Kit](https://mycroft.ai/documentation/skills/msk/)
-* [Developing a new Skill](https://mycroft.ai/documentation/skills/introduction-developing-skills/)
-* [Skill Settings](https://mycroft.ai/documentation/skills/skill-settings/)
-* [Automatic testing of your Mycroft Skill](https://mycroft.ai/documentation/skills/automatic-testing/)
-* [Skill Acceptance Process](https://mycroft.ai/documentation/skills/skills-acceptance-process/)
-* [Mycroft Skills Manager](https://mycroft.ai/documentation/msm/)
-* [Mycroft Message Bus](https://mycroft.ai/documentation/message-bus/)
 
-# Available Skills
+# Keeping backend skills
 
-You can easily browse skills in this repo via the [Mycroft Marketplace](https://market.mycroft.ai).
+If you want to only keep the configuration and pairing skills, needed to properly interact with Selene
 
-# Support 
+```
+  "skills": {
+    "msm": {
+      "repo": {
+        "url": "https://github.com/OpenVoiceOS/disable-msm-dummy-repo",
+        "branch": "backend_only"
+      }
+    },
+```
 
-Join us in the [~dev channel](https://chat.mycroft.ai/community/channels/dev) or [~skills channel](https://chat.mycroft.ai/community/channels/skills) on Mycroft Chat for assistance.
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+
+
+# Disabling default skills
+
+If you want to keep the full msm functionality (marketplace installer skill), but not have default skills installed (except backend skills)
+
+NOTE: this may lag behind official marketplace, open an Issue if we are due an update
+
+Last sync: 27/12/2020  branch 20.08
+
+```
+  "skills": {
+    "msm": {
+      "repo": {
+        "url": "https://github.com/OpenVoiceOS/disable-msm-dummy-repo",
+        "branch": "no_default_skills"
+      }
+    },
+```
+
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+
+
+# Core skills only
+
+If you want to keep the full msm functionality (marketplace installer skill), but not have default skills installed (except core functionality skills)
+
+NOTE: this may lag behind official marketplace, open an Issue if we are due an update
+
+Last sync: 27/12/2020  branch 20.08
+
+```
+  "skills": {
+    "msm": {
+      "repo": {
+        "url": "https://github.com/OpenVoiceOS/disable-msm-dummy-repo",
+        "branch": "core_skills"
+      }
+    },
+```
+
+Default skill list:
+- mycroft-pairing
+- mycroft-configuration
+- mycroft-installer
+- mycroft-stop
+- mycroft-naptime
+- mycroft-playback-control
+- mycroft-volume
+- fallback-query
+
+# Alternative default skills
+
+If you want an alternative setup open an Issue, we can provide a branch with your personal default skill selection. If however you want a full alternative appstore then you should fork mycroft-skills and maintain it yourself
+
